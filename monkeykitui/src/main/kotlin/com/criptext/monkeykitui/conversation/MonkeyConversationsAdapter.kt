@@ -82,9 +82,12 @@ open class MonkeyConversationsAdapter(val mContext: Context) : RecyclerView.Adap
 
         onConversationLongClicked = object : OnConversationLongClicked {
             override fun invoke(p1: MonkeyConversation) {
-                val options = if(p1.isGroup()) groupOptions else conversationOptions
-                val dialog = ConversationOptionsDialog(options, p1)
-                dialog.show(mContext)
+
+                if(p1.isDeletable()) {
+                    val options = if (p1.isGroup()) groupOptions else conversationOptions
+                    val dialog = ConversationOptionsDialog(options, p1)
+                    dialog.show(mContext)
+                }
             }
 
         }

@@ -41,6 +41,11 @@ interface MonkeyConversation{
     fun isGroup(): Boolean
 
     /**
+     * @return true if this is a group conversation
+     */
+    fun isDeletable(): Boolean
+
+    /**
      * @return String with the monkey ID's of the group members separated by commas
      */
     fun getGroupMembers(): String?
@@ -89,6 +94,7 @@ interface MonkeyConversation{
             override fun getAdmins() = ""
             override fun getTotalNewMessages() = 0
             override fun isGroup() = false
+            override fun isDeletable() = true
 
         }
 

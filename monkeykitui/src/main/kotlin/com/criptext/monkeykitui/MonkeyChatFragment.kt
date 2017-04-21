@@ -359,4 +359,6 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
     override fun scrollToPosition(pos: Int) = recyclerView.scrollToPosition(pos)
 
     override fun scrollWithOffset(newItemsCount: Int) = monkeyAdapter.scrollWithOffset(newItemsCount)
+
+    fun scrollDown() = monkeyAdapter.scrollDown()
 }

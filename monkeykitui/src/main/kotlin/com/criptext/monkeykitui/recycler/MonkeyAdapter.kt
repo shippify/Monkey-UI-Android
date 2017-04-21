@@ -73,6 +73,10 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
      * This value is used to display the read status of every message.
      */
     var lastRead = 0L
+
+    var cConversationId:String = conversationId
+    var SHIPPIFY_SUPPORT_CHAT_ID:String = "inqen96qeemcv0n8byhnnrk9-shipsupp"
+
     private fun isRead(item: MonkeyItem) = item.getMessageTimestampOrder() <= lastRead
 
     init{
@@ -279,9 +283,16 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
 
         if (item.isIncomingMessage()) { //stuff for incoming messages
             val group = groupChat
+            // TODO: Make this outside of MonkeyAdapter. Force names of all members to Shippify if group is support.
             if (group != null && !isFollowupMessage(position)) {
-                holder.setSenderName(group.getMemberName(item.getSenderId()),
-                        group.getMemberColor(item.getSenderId()))
+                if(cConversationId.contains(SHIPPIFY_SUPPORT_CHAT_ID)) {
+                            holder.setSenderName("Shippify",
+                            group.getMemberColor(item.getSenderId()))
+                }
+                else {
+                    holder.setSenderName(group.getMemberName(item.getSenderId()),
+                            group.getMemberColor(item.getSenderId()))
+                }
             } else
                 holder.hideSenderName()
         } else { //stuff for outgoing messages
@@ -578,6 +589,13 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
             manager.scrollToPositionWithOffset(newItemsCount,
                     mContext.resources.getDimension(R.dimen.scroll_offset).toInt())
         }
+    }
+
+
+    fun scrollDown() {
+        //Scroll only if position is not in the last position
+        val manager = recyclerView!!.layoutManager as LinearLayoutManager
+            manager.scrollToPosition(messages.actualSize-1)
     }
 
     /**
