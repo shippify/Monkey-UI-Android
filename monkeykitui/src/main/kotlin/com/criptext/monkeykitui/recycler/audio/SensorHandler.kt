@@ -20,7 +20,7 @@ class SensorHandler(private val voiceNotePlayer: VoiceNotePlayer?, private val c
     var isProximityOn = false
     private set
     private val mSensorManager: SensorManager
-    private val mSensor: Sensor
+    private var mSensor: Sensor?=null
     private val mAudioManager: AudioManager
     private val mProximityWakeLock: PowerManager.WakeLock? by lazy {
         val pm = ctx.getSystemService(Context.POWER_SERVICE) as PowerManager
@@ -40,14 +40,20 @@ class SensorHandler(private val voiceNotePlayer: VoiceNotePlayer?, private val c
     init {
         mAudioManager = ctx.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         mSensorManager = ctx.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
-        mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST)
 
+        try {
+            mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+            mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST)
+        }
+        catch(ignored: Throwable) {
+
+            ignored.printStackTrace()
+        }
     }
 
     override fun onSensorChanged(event: SensorEvent) {
 
-        if (event.values[0] < mSensor.maximumRange) {
+        if (mSensor != null && event.values[0] < mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY).maximumRange) {
 
             if (voiceNotePlayer != null && voiceNotePlayer.isPlayingAudio) {
                 voiceNotePlayer.onPauseButtonClicked()
