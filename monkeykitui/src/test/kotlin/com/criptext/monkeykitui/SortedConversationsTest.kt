@@ -18,6 +18,7 @@ class SortedConversationsTest {
 
     fun newConversation(timestamp: Long, id: String, status: Int): MonkeyConversation {
         return object : MonkeyConversation {
+            override fun isDeletable() = false
             override fun getAvatarFilePath() = ""
             override fun getDatetime() = timestamp
             override fun getGroupMembers() = ""
