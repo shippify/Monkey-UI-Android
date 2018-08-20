@@ -32,7 +32,7 @@ open class MonkeyInfoFragment : Fragment(){
     var rightText : TextView? = null
     var leftText : TextView? = null
     var noContentText : TextView? = null
-    var outButton : Button? = null
+//    var outButton : Button? = null
     var isGroup : Boolean = false
     var loadingLayout : FrameLayout? = null
 
@@ -42,11 +42,11 @@ open class MonkeyInfoFragment : Fragment(){
             leftText?.text = leftText?.context?.resources?.getString(R.string.mk_text_participants)
             if(groupInfo != null)
                 rightText?.text = groupInfo.size.toString() + " of 50"
-            outButton?.visibility = View.VISIBLE
+//            outButton?.visibility = View.VISIBLE
         }else{
             leftText?.text = leftText?.context?.resources?.getString(R.string.mk_text_common)
             rightText?.text = ""
-            outButton?.visibility = View.GONE
+//            outButton?.visibility = View.GONE
         }
         if(groupInfo != null && groupInfo.size <= 0 && isGroup){
             loadingLayout?.visibility = View.VISIBLE
@@ -64,7 +64,7 @@ open class MonkeyInfoFragment : Fragment(){
 
     open protected fun initRecyclerView(view: View): RecyclerView {
         //RecyclerView must be inside a container http://stackoverflow.com/a/32695034/5207721
-        val recycler = view.findViewById(R.id.recycler) as RecyclerView
+        val recycler : RecyclerView = view.findViewById(R.id.recycler)
         val linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
         recycler.layoutManager = linearLayoutManager;
 
@@ -80,32 +80,32 @@ open class MonkeyInfoFragment : Fragment(){
         infoAdapter = MonkeyInfoAdapter(activity)
         infoAdapter!!.recyclerView = recyclerView
         recyclerView.adapter = infoAdapter
-        rightText = view.findViewById(R.id.rightTextList) as TextView
-        leftText = view.findViewById(R.id.leftTextList) as TextView
-        outButton = view.findViewById(R.id.mk_info_out) as Button
-        loadingLayout = view.findViewById(R.id.info_load) as FrameLayout
-        noContentText = view.findViewById(R.id.noContentText) as TextView
+        rightText = view.findViewById(R.id.rightTextList)
+        leftText = view.findViewById(R.id.leftTextList)
+//        outButton = view.findViewById(R.id.mk_info_out)
+        loadingLayout = view.findViewById(R.id.info_load)
+        noContentText = view.findViewById(R.id.noContentText)
 
         if(!isGroup || !arguments.getBoolean("canAddMembers")){
-            view.findViewById(R.id.add_participant).visibility = View.GONE
-            view.findViewById(R.id.participant_gap).visibility = View.VISIBLE
+            view.findViewById<View>(R.id.add_participant).visibility = View.GONE
+            view.findViewById<View>(R.id.participant_gap).visibility = View.VISIBLE
         }else{
-            view.findViewById(R.id.add_participant).setOnClickListener {
+            view.findViewById<View>(R.id.add_participant).setOnClickListener {
                 (activity as InfoActivity).onAddParticipant();
             }
         }
 
-        (outButton as? Button)?.setOnClickListener{
-            var alert = AlertDialog.Builder(recyclerView.context)
-            alert.setTitle(recyclerView.context.getString(R.string.mk_text_exit_group))
-            alert.setPositiveButton(recyclerView.context.getString(R.string.mk_text_confirm)){
-                dialog, whichButton -> (activity as InfoActivity).onExitGroup(arguments.getString("conversationId"));
-            }
-            alert.setNegativeButton(recyclerView.context.getString(R.string.mk_text_cancel)){
-                dialog, whichButton ->
-            }
-            alert.show()
-        }
+//        (outButton as? Button)?.setOnClickListener{
+//            var alert = AlertDialog.Builder(recyclerView.context)
+//            alert.setTitle(recyclerView.context.getString(R.string.mk_text_exit_group))
+//            alert.setPositiveButton(recyclerView.context.getString(R.string.mk_text_confirm)){
+//                dialog, whichButton -> (activity as InfoActivity).onExitGroup(arguments.getString("conversationId"));
+//            }
+//            alert.setNegativeButton(recyclerView.context.getString(R.string.mk_text_cancel)){
+//                dialog, whichButton ->
+//            }
+//            alert.show()
+//        }
 
         return view
     }

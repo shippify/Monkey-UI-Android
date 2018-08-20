@@ -23,10 +23,10 @@ class HeaderView(context: Context, attrs: AttributeSet? = null) : RelativeLayout
     init{
         View.inflate(context, R.layout.custom_toolbar, this)
         //firstContainer = findViewById(R.id.back_button) as LinearLayout
-        secondContainer = findViewById(R.id.layoutNameStatus) as LinearLayout
-        imageView = findViewById(R.id.imageViewAvatar) as CircleImageView
-        title = findViewById(R.id.textViewTitle) as TextView
-        subtitle = findViewById(R.id.textViewSubTitle) as TextView
+        secondContainer = findViewById(R.id.layoutNameStatus)
+        imageView = findViewById(R.id.imageViewAvatar)
+        title = findViewById(R.id.textViewTitle)
+        subtitle = findViewById(R.id.textViewSubTitle)
 
     }
 

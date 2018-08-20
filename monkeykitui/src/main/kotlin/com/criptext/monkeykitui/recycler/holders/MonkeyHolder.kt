@@ -47,18 +47,18 @@ open class MonkeyHolder : RecyclerView.ViewHolder {
     var filesizeTextView : TextView? = null
 
     constructor(view : View) : super(Utils.getViewWithRecyclerLayoutParams(view)) {
-        datetimeTextView = view.findViewById(R.id.datetime) as TextView?
-        bubbleLayout = view.findViewById(R.id.content_message) as ViewGroup?
-        tailImageView = view.findViewById(R.id.tail) as ImageView?
-        selectedImageView = view.findViewById(R.id.imageViewChecked) as ImageView?
-        dateSeparatorTextview = view.findViewById(R.id.textViewDay) as TextView?
-        layoutDateHeader = view.findViewById(R.id.layoutDateHeader) as LinearLayout?
+        datetimeTextView = view.findViewById(R.id.datetime)
+        bubbleLayout = view.findViewById(R.id.content_message)
+        tailImageView = view.findViewById(R.id.tail)
+        selectedImageView = view.findViewById(R.id.imageViewChecked)
+        dateSeparatorTextview = view.findViewById(R.id.textViewDay)
+        layoutDateHeader = view.findViewById(R.id.layoutDateHeader)
 
-        senderNameTextView = view.findViewById(R.id.sender_name) as TextView?
+        senderNameTextView = view.findViewById(R.id.sender_name)
 
-        checkmarkImageView = view.findViewById(R.id.imageViewCheckmark) as ImageView?
-        errorImageView = view.findViewById(R.id.net_error) as ImageView?
-        sendingProgressBar = view.findViewById(R.id.sendingWheel) as ProgressBar?
+        checkmarkImageView = view.findViewById(R.id.imageViewCheckmark)
+        errorImageView = view.findViewById(R.id.net_error)
+        sendingProgressBar = view.findViewById(R.id.sendingWheel)
         sendingProgressBar?.indeterminateDrawable?.setColorFilter(Color.parseColor("#014766"), android.graphics.PorterDuff.Mode.MULTIPLY);
 
         bubbleLayout?.setOnClickListener {

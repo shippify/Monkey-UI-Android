@@ -29,7 +29,7 @@ class PhotoViewActivity : Activity() {
         val data_path = intent.getStringExtra(IMAGE_DATA_PATH)
 
         val dir = File(data_path)
-        mImageView = findViewById(R.id.photo) as TouchImageView
+        mImageView = findViewById(R.id.photo)
         loadBitmap(dir, mImageView)
     }
 

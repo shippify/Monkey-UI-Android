@@ -90,7 +90,7 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
      * @return the RecyclerView object of this fragment ready to set an adapter with data.
      */
     open fun initRecyclerView(view: View): RecyclerView {
-        val recycler = view.findViewById(R.id.recycler) as RecyclerView
+        val recycler : RecyclerView = view.findViewById(R.id.recycler)
         val linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
         linearLayoutManager.stackFromEnd = true;
         recycler.layoutManager = linearLayoutManager;
@@ -125,7 +125,7 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
         setHasOptionsMenu(true)
         recyclerView = initRecyclerView(view)
 
-        inputView = view.findViewById(R.id.inputView) as BaseInputView
+        inputView = view.findViewById(R.id.inputView)
         (inputView as? MediaInputView)?.setDefaultRecorder()
         inputView?.inputListener = this.inputListener
 

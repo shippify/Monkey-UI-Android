@@ -24,11 +24,11 @@ open class ConversationHolder: RecyclerView.ViewHolder {
     val avatarImageView: CircleImageView?
 
     constructor(view : View, textMaxWidth: Int) : super(Utils.getViewWithRecyclerLayoutParams(view)) {
-        nameTextView = view.findViewById(R.id.conv_name) as TextView?
-        secondaryTextView = view.findViewById(R.id.conv_secondary_txt) as TextView?
-        dateTextView = view.findViewById(R.id.conv_date) as TextView?
-        badge = view.findViewById(R.id.conv_badge) as TextView?
-        avatarImageView = view.findViewById(R.id.conv_avatar) as CircleImageView?
+        nameTextView = view.findViewById(R.id.conv_name)
+        secondaryTextView = view.findViewById(R.id.conv_secondary_txt)
+        dateTextView = view.findViewById(R.id.conv_date)
+        badge = view.findViewById(R.id.conv_badge)
+        avatarImageView = view.findViewById(R.id.conv_avatar)
 
         nameTextView?.maxWidth = textMaxWidth
         secondaryTextView?.maxWidth = textMaxWidth

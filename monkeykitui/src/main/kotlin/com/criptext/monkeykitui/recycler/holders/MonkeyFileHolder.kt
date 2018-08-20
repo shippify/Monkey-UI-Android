@@ -19,10 +19,10 @@ open class MonkeyFileHolder: MonkeyHolder, MonkeyFile {
     var downloadProgressBar : ProgressBar? = null
 
     constructor(view : View) : super(view) {
-        fileLogoImageView = view.findViewById(R.id.imageViewLogoFile) as ImageView
-        filenameTextView = view.findViewById(R.id.textViewFilename) as TextView
-        filesizeTextView = view.findViewById(R.id.textViewFileSize) as TextView
-        downloadProgressBar = view.findViewById(R.id.downloadProgress) as ProgressBar?
+        fileLogoImageView = view.findViewById(R.id.imageViewLogoFile)
+        filenameTextView = view.findViewById(R.id.textViewFilename)
+        filesizeTextView = view.findViewById(R.id.textViewFileSize)
+        downloadProgressBar = view.findViewById(R.id.downloadProgress)
     }
 
     open fun showFileData(filename: String, fileSize: String){

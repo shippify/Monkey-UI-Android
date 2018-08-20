@@ -46,7 +46,7 @@ open class AudioInputView : TextInputView {
     }
 
     fun setSendAudioDrawable(customDrawable: Drawable){
-        val imageView : ImageView = recBtn.findViewById(R.id.button_mic_foreground) as ImageView
+        val imageView : ImageView = recBtn.findViewById(R.id.button_mic_foreground)
         imageView.setImageDrawable(customDrawable)
     }
 
@@ -56,11 +56,11 @@ open class AudioInputView : TextInputView {
         val defaultInputViewHeight = context.resources.getDimension(R.dimen.audio_btn_expanded_height)
         val params = LayoutParams(LayoutParams.MATCH_PARENT, defaultInputViewHeight.toInt())
         view.layoutParams = params
-        txtBtn = view.findViewById(R.id.button_send) as ImageView
-        recBtn = view.findViewById(R.id.button_mic) as View
-        val mic = view.findViewById(R.id.redMic)
-        val timer = view.findViewById(R.id.textViewTimeRecording)
-        val slide = view.findViewById(R.id.layoutSwipeCancel)
+        txtBtn = view.findViewById(R.id.button_send)
+        recBtn = view.findViewById(R.id.button_mic)
+        val mic = view.findViewById<View>(R.id.redMic)
+        val timer = view.findViewById<View>(R.id.textViewTimeRecording)
+        val slide = view.findViewById<View>(R.id.layoutSwipeCancel)
 
         val customTextDrawable = typedArray.getDrawable(R.styleable.InputView_sendTextDrawable)
         val customAudioDrawable = typedArray.getDrawable(R.styleable.InputView_sendAudioDrawable)

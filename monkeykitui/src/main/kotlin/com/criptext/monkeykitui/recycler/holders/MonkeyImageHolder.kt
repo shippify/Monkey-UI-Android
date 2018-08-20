@@ -26,12 +26,12 @@ open class MonkeyImageHolder : MonkeyHolder, MonkeyFile {
     var button: ImageView? = null
 
     constructor(view : View) : super(view) {
-        photoImageView = view.findViewById(R.id.image_view) as ImageView
-        button = view.findViewById(R.id.button) as ImageView?
-        retryDownloadLayout = view.findViewById(R.id.layoutRetryDownload) as LinearLayout?
-        retryUploadLayout = view.findViewById(R.id.layoutRetryUpload) as LinearLayout?
-        photoLoadingView = view.findViewById(R.id.progressBarImage) as ProgressBar?
-        downloadSizeTextView = view.findViewById(R.id.textViewSize) as TextView?
+        photoImageView = view.findViewById(R.id.image_view)
+        button = view.findViewById(R.id.button)
+        retryDownloadLayout = view.findViewById(R.id.layoutRetryDownload)
+        retryUploadLayout = view.findViewById(R.id.layoutRetryUpload)
+        photoLoadingView = view.findViewById(R.id.progressBarImage)
+        downloadSizeTextView = view.findViewById(R.id.textViewSize)
 
         sendingProgressBar?.indeterminateDrawable?.setColorFilter(Color.WHITE, android.graphics.PorterDuff.Mode.MULTIPLY);
     }

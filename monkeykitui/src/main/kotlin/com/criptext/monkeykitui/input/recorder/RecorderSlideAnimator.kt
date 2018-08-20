@@ -56,8 +56,8 @@ class RecorderSlideAnimator(redMic: View, timer: View, slideMessage: View, butto
         this.timer = timer
         this.slideMsg = slideMessage
         this.button = button
-        this.buttonBackground = this.button.findViewById(R.id.button_mic_backgorund) as View
-        this.buttonForeground = this.button.findViewById(R.id.button_mic_foreground) as View
+        this.buttonBackground = this.button.findViewById(R.id.button_mic_backgorund)
+        this.buttonForeground = this.button.findViewById(R.id.button_mic_foreground)
     }
     fun hideRecorder(cancelled: Boolean): Boolean {
         if(playingConcealAnim)

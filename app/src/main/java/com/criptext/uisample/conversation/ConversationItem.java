@@ -107,4 +107,9 @@ public class ConversationItem implements MonkeyConversation {
     public String getAdmins() {
         return null;
     }
+
+    @Override
+    public boolean isDeletable() {
+        return false;
+    }
 }

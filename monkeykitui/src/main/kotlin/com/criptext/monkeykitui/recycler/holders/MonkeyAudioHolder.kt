@@ -30,10 +30,10 @@ open class MonkeyAudioHolder: MonkeyHolder, MonkeyFile {
     }
 
     constructor(view : View) : super(view) {
-        durationTextView = view.findViewById(R.id.text_shown) as TextView
-        circularAudioView = view.findViewById(R.id.seek_bar) as CircularAudioView
-        playButtonView = view.findViewById(R.id.play_button) as ImageView
-        downloadProgressView = view.findViewById(R.id.progress_audio) as ProgressBar?
+        durationTextView = view.findViewById(R.id.text_shown)
+        circularAudioView = view.findViewById(R.id.seek_bar)
+        playButtonView = view.findViewById(R.id.play_button)
+        downloadProgressView = view.findViewById(R.id.progress_audio)
         circularAudioView!!.setAudioActions(object : AudioActions(){ })
 
         downloadProgressView?.indeterminateDrawable?.setColorFilter(Color.parseColor("#909d9e"), android.graphics.PorterDuff.Mode.MULTIPLY);

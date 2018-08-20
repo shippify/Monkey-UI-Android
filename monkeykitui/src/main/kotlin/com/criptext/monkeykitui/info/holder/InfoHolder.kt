@@ -21,10 +21,10 @@ open class InfoHolder: RecyclerView.ViewHolder {
     val avatarImageView: CircleImageView?
 
     constructor(view : View, textMaxWidth: Int) : super(Utils.getViewWithRecyclerLayoutParams(view)) {
-        nameTextView = view.findViewById(R.id.info_name) as TextView?
-        secondaryTextView = view.findViewById(R.id.info_secondary_txt) as TextView?
-        tagTextView = view.findViewById(R.id.info_rol) as TextView?
-        avatarImageView = view.findViewById(R.id.info_avatar) as CircleImageView?
+        nameTextView = view.findViewById(R.id.info_name)
+        secondaryTextView = view.findViewById(R.id.info_secondary_txt)
+        tagTextView = view.findViewById(R.id.info_rol)
+        avatarImageView = view.findViewById(R.id.info_avatar)
 
     }
 

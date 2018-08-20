@@ -42,7 +42,7 @@ open class MonkeyConversationsFragment: Fragment(), ConversationListUI {
      */
     open protected fun initRecyclerView(view: View): RecyclerView {
         //RecyclerView must be inside a container http://stackoverflow.com/a/32695034/5207721
-        val recycler = view.findViewById(R.id.recycler) as RecyclerView
+        val recycler : RecyclerView = view.findViewById(R.id.recycler)
         val linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
         recycler.layoutManager = linearLayoutManager;
         return recycler
