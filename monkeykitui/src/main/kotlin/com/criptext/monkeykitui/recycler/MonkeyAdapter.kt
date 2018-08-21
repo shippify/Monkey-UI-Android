@@ -57,8 +57,8 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
 
     val dataLoader : SlowRecyclerLoader
 
-    val receivedMessageOptions: HashMap<Int, MutableList<OnMessageOptionClicked>>
-    val sentMessageOptions: HashMap<Int, MutableList<OnMessageOptionClicked>>
+//    val receivedMessageOptions: HashMap<Int, MutableList<OnMessageOptionClicked>>
+//    val sentMessageOptions: HashMap<Int, MutableList<OnMessageOptionClicked>>
 
     var loadingDelay: Long
         get() =  dataLoader.delayTime
@@ -83,15 +83,15 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
         messages = MessagesList("")
         selectedMessage = null
         voiceNotePlayer = null
-        var messageOptions = MessageOptions(ctx = mContext,
-                delete = { it: MonkeyItem -> removeItemFromRecycler(it, false)},
-                unsend = { it: MonkeyItem ->
-                    if(!it.getDeliveryStatus().isTransferring()) {
-                        removeItemFromRecycler(it, true)
-                    }
-                } )
-        receivedMessageOptions = messageOptions.initReceivedMessageOptions()
-        sentMessageOptions = messageOptions.initSentMessageOptions()
+//        var messageOptions = MessageOptions(ctx = mContext,
+//                delete = { it: MonkeyItem -> removeItemFromRecycler(it, false)},
+//                unsend = { it: MonkeyItem ->
+//                    if(!it.getDeliveryStatus().isTransferring()) {
+//                        removeItemFromRecycler(it, true)
+//                    }
+//                } )
+//        receivedMessageOptions = messageOptions.initReceivedMessageOptions()
+//        sentMessageOptions = messageOptions.initSentMessageOptions()
         imageListener = object : ImageListener {
             override fun onImageClicked(position: Int, item: MonkeyItem) {
                 val intent = Intent(mContext, FullScreenImageGalleryActivity::class.java)
@@ -243,21 +243,21 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
         }
     }
 
-    protected fun getMessageLongClickOptions(item: MonkeyItem): MutableList<OnMessageOptionClicked>?{
-        val monkeyType = item.getMessageType()
-        val optionsMap = if(item.isIncomingMessage()) receivedMessageOptions else sentMessageOptions
-        return optionsMap[monkeyType]
-    }
+//    protected fun getMessageLongClickOptions(item: MonkeyItem): MutableList<OnMessageOptionClicked>?{
+//        val monkeyType = item.getMessageType()
+//        val optionsMap = if(item.isIncomingMessage()) receivedMessageOptions else sentMessageOptions
+//        return optionsMap[monkeyType]
+//    }
 
-    protected fun bindMessageLongClickListener(item: MonkeyItem, targetView: View){
-        val options = getMessageLongClickOptions(item)
-        if(options?.isNotEmpty() ?: false)
-            targetView.setOnLongClickListener {
-                MessageOptionsDialog(options!!, item).show(mContext)
-                true
-            }
-        else targetView.setOnLongClickListener(null)
-    }
+//    protected fun bindMessageLongClickListener(item: MonkeyItem, targetView: View){
+//        val options = getMessageLongClickOptions(item)
+//        if(options?.isNotEmpty() ?: false)
+//            targetView.setOnLongClickListener {
+//                MessageOptionsDialog(options!!, item).show(mContext)
+//                true
+//            }
+//        else targetView.setOnLongClickListener(null)
+//    }
 
     fun isFollowupMessage(position: Int): Boolean{
         if(position > 0 && messages.getItemAt(position).getSenderId()
@@ -301,8 +301,8 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
         }
 
         val bubbleLayout = holder.bubbleLayout
-        if(bubbleLayout != null)
-        bindMessageLongClickListener(item, bubbleLayout)
+//        if(bubbleLayout != null)
+//        bindMessageLongClickListener(item, bubbleLayout)
     }
     /**
      * Binds an existing MonkeyHolder with a MonkeyItem of type Text. This method is called on the
@@ -441,15 +441,15 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
                 imageHolder.setDownloadedImage(file, chatActivity as Context)
                 imageHolder.setOnClickListener(View.OnClickListener { imageListener?.onImageClicked(position, item) })
                 val imageView = imageHolder.photoImageView
-                if(imageView != null)
-                    bindMessageLongClickListener(item, imageView)
+//                if(imageView != null)
+//                    bindMessageLongClickListener(item, imageView)
             }
         } else {//Ask for permissions on click
             imageHolder.setEmptyImage()
             imageHolder.setOnClickListener(View.OnClickListener { requestPermissionToReadSDCard() })
             val imageView = imageHolder.photoImageView
-            if(imageView != null)
-                bindMessageLongClickListener(item, imageView)
+//            if(imageView != null)
+//                bindMessageLongClickListener(item, imageView)
         }
 
     }
@@ -475,18 +475,18 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
         val audioHolder = holder as MonkeyAudioHolder
         val target = File(item.getFilePath())
         val playingAudio = voiceNotePlayer?.currentlyPlayingItem
-        val longClickOptions = getMessageLongClickOptions(item)
+//        val longClickOptions = getMessageLongClickOptions(item)
         val playAction = object : AudioActions() {
                     override fun onActionClicked() {
                         super.onActionClicked()
                         voiceNotePlayer?.playVoiceNote(item)
                     }
 
-                    override fun onActionLongClicked() {
-                        super.onActionLongClicked()
-                        if(longClickOptions?.isNotEmpty() ?: false)
-                            MessageOptionsDialog(longClickOptions!!, item).show(mContext)
-                    }
+//                    override fun onActionLongClicked() {
+//                        super.onActionLongClicked()
+//                        if(longClickOptions?.isNotEmpty() ?: false)
+//                            MessageOptionsDialog(longClickOptions!!, item).show(mContext)
+//                    }
                 }
 
         val pauseAction = object : AudioActions() {
@@ -495,11 +495,11 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
                         voiceNotePlayer?.pauseVoiceNote()
                     }
 
-                    override fun onActionLongClicked() {
-                        super.onActionLongClicked()
-                        if(longClickOptions?.isNotEmpty() ?: false)
-                            MessageOptionsDialog(longClickOptions!!, item).show(mContext)
-                    }
+//                    override fun onActionLongClicked() {
+//                        super.onActionLongClicked()
+//                        if(longClickOptions?.isNotEmpty() ?: false)
+//                            MessageOptionsDialog(longClickOptions!!, item).show(mContext)
+//                    }
                 }
         audioHolder.setAudioDurationText(item.getAudioDuration())
         if(!target.exists()){ //Message does not exist, needs to be downloaded

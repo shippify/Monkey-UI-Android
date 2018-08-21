@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor">@color/mk_bar_status_red</item>
     </style>
 
     <style name="Theme.CustomTranslucent" parent="android:style/Theme.DeviceDefault">
