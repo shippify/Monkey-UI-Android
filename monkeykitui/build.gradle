@@ -49,6 +49,7 @@ repositories {
     maven {
         url  "https://dl.bintray.com/lukaville/maven"
     }
+    google()
 
 }
 
@@ -102,6 +103,10 @@ task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
 task androidSourcesJar(type: Jar) {
     classifier = 'sources'
     from android.sourceSets.main.java.srcDirs
+}
+
+tasks.withType(Javadoc).all {
+    enabled = false
 }
 
 artifacts {

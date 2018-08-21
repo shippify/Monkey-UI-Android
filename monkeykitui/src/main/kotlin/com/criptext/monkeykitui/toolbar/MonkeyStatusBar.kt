@@ -57,7 +57,7 @@ open class MonkeyStatusBar(var activity: AppCompatActivity){
     }
 
     fun initStatusBar(){
-        viewStatus = activity.findViewById(R.id.viewStatus) as FrameLayout?
+        viewStatus = activity.findViewById(R.id.viewStatus)
         viewStatus!!.addView(viewStatusCont)
         viewStatus!!.tag = "iddle"
         handlerStatus = Handler()

@@ -33,14 +33,14 @@ open class MonkeyToolbar(activity: AppCompatActivity) {
     val appBarLayout : AppBarLayout
 
     init {
-        toolbar = activity.findViewById(R.id.toolbar) as Toolbar
-        customToolbar = activity.findViewById(R.id.custom_toolbar) as HeaderView
+        toolbar = activity.findViewById(R.id.toolbar)
+        customToolbar = activity.findViewById(R.id.custom_toolbar)
 
         activity.setSupportActionBar(toolbar)
         actionBar = activity.supportActionBar!!
         actionBar.setDisplayShowTitleEnabled(false)
         actionBar.setDisplayHomeAsUpEnabled(false)
-        appBarLayout = activity.findViewById(R.id.toolbar_layout) as AppBarLayout
+        appBarLayout = activity.findViewById(R.id.toolbar_layout)
     }
 
     fun setConversationsToolbar(title: String, showBackButton: Boolean) {

@@ -74,9 +74,9 @@ class PhotoEditorActivity : AppCompatActivity() {
 
         photoFilePath = intent.getStringExtra(destinationPath)
 
-        photo = findViewById(R.id.photo) as ImageView?
-        sendButton = findViewById(R.id.sendPhoto) as Button?
-        progressBar = findViewById(R.id.progressBarSending) as ProgressBar?
+        photo = findViewById(R.id.photo)
+        sendButton = findViewById(R.id.sendPhoto)
+        progressBar = findViewById(R.id.progressBarSending)
 
         //set Photo
         setEditingPhoto()
@@ -84,13 +84,13 @@ class PhotoEditorActivity : AppCompatActivity() {
         //set button color
         setButtonColor()
 
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun setButtonColor(){
-        val sendButton = findViewById(R.id.sendPhoto) as Button
+        val sendButton = findViewById<Button>(R.id.sendPhoto)
         val typedValue = TypedValue();
         val a = obtainStyledAttributes(typedValue.data, intArrayOf(R.attr.colorPrimary))
         val color = a.getColor(0,0)
