@@ -34,6 +34,7 @@ import java.util.*
  * Adapter class for displaying MonkeyItem messages on a RecyclerView.
  * Displays 3 kinds of messages, Text, Audio, and Photos.
  * Created by Gabriel on 4/4/16.
+ * check
  */
 
 open class MonkeyAdapter(val mContext: Context, val conversationId: String) : RecyclerView.Adapter<MonkeyHolder>() {
