@@ -270,8 +270,8 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
     }
 
     override fun onCreateOptionsMenu(menu : Menu?, inflater: MenuInflater){
-        inflater.inflate(R.menu.menu_chat, menu)
-        super.onCreateOptionsMenu(menu, inflater)
+//        inflater.inflate(R.menu.menu_chat, menu)
+//        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

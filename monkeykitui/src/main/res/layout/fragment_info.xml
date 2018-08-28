@@ -132,24 +132,6 @@
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:cardCornerRadius="0dp"
-            >
-
-            <!--<Button-->
-                <!--android:id="@+id/mk_info_out"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Salir"-->
-                <!--android:background="#ff0000"-->
-                <!--android:textColor="#ffffff" />-->
-
-        </android.support.v7.widget.CardView>
-
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

@@ -26,7 +26,9 @@ import java.util.*
 open class MonkeyInfoFragment : Fragment(){
 
     open val infoLayout: Int
-        get() = R.layout.fragment_info
+        get() {
+            return R.layout.fragment_info
+        }
     lateinit var recyclerView: RecyclerView
     protected var infoAdapter: MonkeyInfoAdapter? = null
     var rightText : TextView? = null
@@ -170,5 +172,4 @@ open class MonkeyInfoFragment : Fragment(){
         menu?.clear()
         super.onCreateOptionsMenu(menu, inflater)
     }
-
 }

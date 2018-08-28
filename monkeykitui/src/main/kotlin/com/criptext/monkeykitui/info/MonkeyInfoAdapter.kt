@@ -102,9 +102,9 @@ open class MonkeyInfoAdapter(val mContext: Context) : RecyclerView.Adapter<InfoH
             holder.setSecondaryText(infoItem.getSubtitle())
             holder.setTag(infoItem.getRightTitle())
             holder.setAvatar(infoItem.getAvatarUrl(), true)
-            holder.itemView.setOnClickListener{
-                infoActivity.onInfoItemClick(infoItem)
-            }
+//            holder.itemView.setOnClickListener{
+//                infoActivity.onInfoItemClick(infoItem)
+//            }
 
             if(!infoItem.getInfoId().contains("G:")) {
                 holder.itemView.setOnLongClickListener({
@@ -162,5 +162,3 @@ open class MonkeyInfoAdapter(val mContext: Context) : RecyclerView.Adapter<InfoH
 
     }
 }
-
-
