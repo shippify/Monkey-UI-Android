@@ -12,12 +12,12 @@ version = '1.5.8'
 //version = '1.3.6'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 18
-        targetSdkVersion 23
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -64,9 +64,9 @@ dependencies {
     //robolectric needs this for API 23 https://github.com/robolectric/robolectric/issues/1932
     testImplementation 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
 
-    api 'com.android.support:appcompat-v7:26.+'
-    api 'com.android.support:recyclerview-v7:26.+'
-    api 'com.android.support:design:26.+'
+    api 'com.android.support:appcompat-v7:28.0.0'
+    api 'com.android.support:recyclerview-v7:28.0.0'
+    api 'com.android.support:design:28.0.0'
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     api 'com.squareup.picasso:picasso:2.5.2'
     api 'com.soundcloud.android:android-crop:1.0.1@aar'
@@ -78,7 +78,7 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
-    api 'com.android.support:cardview-v7:26.+'
+    api 'com.android.support:cardview-v7:28.0.0'
     api 'com.nbsp:library:1.1'
     api files('libs/commons-lang-2.5.jar')
 }
