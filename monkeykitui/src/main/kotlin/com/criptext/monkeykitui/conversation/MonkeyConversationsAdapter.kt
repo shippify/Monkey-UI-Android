@@ -92,7 +92,7 @@ open class MonkeyConversationsAdapter(val mContext: Context) : RecyclerView.Adap
         }
     }
 
-    override fun onViewAttachedToWindow(holder: ConversationHolder?) {
+    override fun onViewAttachedToWindow(holder: ConversationHolder) {
         super.onViewAttachedToWindow(holder)
         val endHolder = holder as? ConversationHolder.EndHolder
         if(endHolder != null) {
@@ -113,7 +113,7 @@ open class MonkeyConversationsAdapter(val mContext: Context) : RecyclerView.Adap
         }
     }
 
-    override fun onBindViewHolder(holder: ConversationHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ConversationHolder, position: Int) {
         val conversation = conversations[position]
         if(holder != null && conversation.getStatus() ==
                 MonkeyConversation.ConversationStatus.moreConversations.ordinal)
@@ -181,7 +181,7 @@ open class MonkeyConversationsAdapter(val mContext: Context) : RecyclerView.Adap
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ConversationHolder? {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConversationHolder {
         if(maxTextWidth == null)
             maxTextWidth = parent!!.width - mContext.resources.getDimension(R.dimen.mk_avatar_size).toInt() * 11 / 4
 

@@ -76,7 +76,7 @@ open class MonkeyInfoAdapter(val mContext: Context) : RecyclerView.Adapter<InfoH
 
     }
 
-    override fun onViewAttachedToWindow(holder: InfoHolder?) {
+    override fun onViewAttachedToWindow(holder: InfoHolder) {
         super.onViewAttachedToWindow(holder)
         val endHolder = holder as? InfoHolder.EndHolder
         if(endHolder != null) {
@@ -95,7 +95,7 @@ open class MonkeyInfoAdapter(val mContext: Context) : RecyclerView.Adapter<InfoH
             else -> 0
         }
     }
-    override fun onBindViewHolder(holder: InfoHolder?, position: Int) {
+    override fun onBindViewHolder(holder: InfoHolder, position: Int) {
         val infoItem = itemsList[position]
         if(holder != null){
             holder.setName(infoItem.getTitle())
@@ -120,7 +120,7 @@ open class MonkeyInfoAdapter(val mContext: Context) : RecyclerView.Adapter<InfoH
         return 0;
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): InfoHolder? {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoHolder {
         if(maxTextWidth == null)
             maxTextWidth = parent!!.width - mContext.resources.getDimension(R.dimen.mk_avatar_size).toInt() * 11 / 4
         val mView: View

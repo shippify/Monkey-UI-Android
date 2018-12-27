@@ -48,11 +48,11 @@ open class MonkeyConversationsFragment: Fragment(), ConversationListUI {
         return recycler
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(conversationsLayout, null)
         setHasOptionsMenu(false)
         recyclerView = initRecyclerView(view)
-        conversationsAdapter = MonkeyConversationsAdapter(activity)
+        conversationsAdapter = MonkeyConversationsAdapter(activity!!.applicationContext)
         conversationsAdapter!!.recyclerView = recyclerView
         recyclerView!!.adapter = conversationsAdapter
         return view

@@ -32,7 +32,7 @@ class HeaderViewBehavior(context: Context, attrs: AttributeSet? = null) : Coordi
     private var mfontSize: Float = 20.toFloat()
     private var mChangeBehaviorPoint: Float = 0.toFloat()
 
-    override fun layoutDependsOn(parent: CoordinatorLayout?, child: HeaderView?, dependency: View?): Boolean {
+    override fun layoutDependsOn(parent: CoordinatorLayout, child: HeaderView, dependency: View): Boolean {
         var hello = (dependency is AppBarLayout)
         return hello
     }

@@ -79,7 +79,7 @@ open class MonkeyHolder : RecyclerView.ViewHolder {
         if(status == MonkeyItem.DeliveryStatus.delivered){
             checkmarkImageView?.visibility = View.VISIBLE
             checkmarkImageView?.setImageDrawable(ContextCompat.getDrawable(
-                    checkmarkImageView?.context, if(read) R.drawable.mk_checkmark_read else
+                    checkmarkImageView!!.context, if(read) R.drawable.mk_checkmark_read else
                     R.drawable.mk_checkmark_sent));
 
         } else {

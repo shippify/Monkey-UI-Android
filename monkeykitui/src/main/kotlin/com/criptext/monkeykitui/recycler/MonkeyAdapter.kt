@@ -154,7 +154,7 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
     }
 
 
-    override fun onViewAttachedToWindow(holder: MonkeyHolder?) {
+    override fun onViewAttachedToWindow(holder: MonkeyHolder) {
         super.onViewAttachedToWindow(holder)
         val endHolder = holder as? MonkeyEndHolder
         if(endHolder != null) {
@@ -170,7 +170,7 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
 
 
     fun refreshDeliveryStatus(monkeyItem: MonkeyItem, recyclerView: RecyclerView){
-        recyclerView.itemAnimator.isRunning({
+        recyclerView.itemAnimator!!.isRunning({
             val position = messages.getItemPositionByTimestamp(monkeyItem)
             if ((monkeyItem.getDeliveryStatus() == MonkeyItem.DeliveryStatus.delivered ||
                     monkeyItem.getDeliveryStatus() == MonkeyItem.DeliveryStatus.error) && isFileMessage(monkeyItem)) {
@@ -691,8 +691,7 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
         return MonkeyEndHolder(mView)
     }
 
-
-    override fun onCreateViewHolder(p0: ViewGroup?, viewtype: Int): MonkeyHolder? {
+    override fun onCreateViewHolder(p0: ViewGroup, viewtype: Int): MonkeyHolder {
         val typeClassification = viewtype / MonkeyItem.MonkeyItemType.values().size
         val isTransferring: Boolean
         val isIncoming: Boolean
@@ -713,7 +712,9 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
             //MonkeyItem.MonkeyItemType.contact ->
             MonkeyItem.MonkeyItemType.MoreMessages -> return createMoreMessagesView()
         }
-        return null
+
+        val mView = LayoutInflater.from(mContext).inflate(R.layout.end_of_recycler_view, null)
+        return MonkeyEndHolder(mView)
     }
 
     fun takeAllMessages() : List<MonkeyItem>{

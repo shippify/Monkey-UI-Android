@@ -78,7 +78,6 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
         val initalLastReadValue = "MonkeyChatFragment.lastread"
         val chatLayoutId = "MonkeyChatFragment.chatLayoutId"
 
-
     }
 
 
@@ -96,9 +95,9 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
         recycler.layoutManager = linearLayoutManager;
 
         val args = arguments
-        val conversationId = args.getString(chatConversationId)
+        val conversationId = args!!.getString(chatConversationId)
         val lastRead = args.getLong(initalLastReadValue)
-        monkeyAdapter = MonkeyAdapter(activity, conversationId, lastRead)
+        monkeyAdapter = MonkeyAdapter(activity!!.applicationContext, conversationId, lastRead)
         monkeyAdapter.recyclerView = recycler
         recycler.adapter = monkeyAdapter
         return recycler
@@ -106,7 +105,7 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
 
     private fun setInitialMessages(){
         val args = arguments
-        val conversationId = args.getString(chatConversationId)
+        val conversationId = args!!.getString(chatConversationId)
         val initialMessages = (activity as ChatActivity).getInitialMessages(conversationId)
         if(initialMessages != null){
             initialMessages.messageListUI = this
@@ -120,7 +119,7 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(chatLayout, null)
         setHasOptionsMenu(true)
         recyclerView = initRecyclerView(view)
@@ -154,7 +153,7 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
 
     override fun onStop() {
         super.onStop()
-        val isRotating = activity.isChangingConfigurations
+        val isRotating = activity!!.isChangingConfigurations
         voiceNotePlayer?.setIsInForeground(isRotating)
         voiceNotePlayer?.setUiUpdater(null)
         inputListener?.onStopTyping()
@@ -207,18 +206,18 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
         }
     }
 
-    fun getConversationId() = arguments.getString(chatConversationId)
+    fun getConversationId() = arguments!!.getString(chatConversationId)
 
-    fun getGroupMembers() = arguments.getString(chatmembersGroupIds)
+    fun getGroupMembers() = arguments!!.getString(chatmembersGroupIds)
 
     fun getChatTitle(): String{
         val args = arguments
-        return args.getString(chatTitleName)
+        return args!!.getString(chatTitleName)
     }
 
     fun getAvatarURL(): String?{
         val args = arguments
-        return args.getString(chatAvatarUrl)
+        return args!!.getString(chatAvatarUrl)
     }
 
     /**
@@ -235,7 +234,7 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
 
     fun isGroupConversation(): Boolean?{
         val args = arguments
-        val conversationId = args.getString(chatConversationId)
+        val conversationId = args!!.getString(chatConversationId)
         return conversationId.contains("G:")
     }
 

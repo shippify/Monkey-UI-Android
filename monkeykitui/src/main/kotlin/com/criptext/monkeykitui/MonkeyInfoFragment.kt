@@ -37,7 +37,7 @@ open class MonkeyInfoFragment : Fragment(){
     var loadingLayout : FrameLayout? = null
 
     private fun setInfo(){
-        val groupInfo = (activity as InfoActivity).getInfo(arguments.getString("conversationId"))
+        val groupInfo = (activity as InfoActivity).getInfo(arguments!!.getString("conversationId"))
         if(isGroup) {
             leftText?.text = leftText?.context?.resources?.getString(R.string.mk_text_participants)
             if(groupInfo != null)
@@ -71,13 +71,13 @@ open class MonkeyInfoFragment : Fragment(){
         return recycler
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        isGroup = arguments.getBoolean("isGroup")
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        isGroup = arguments!!.getBoolean("isGroup")
 
         val view = inflater!!.inflate(infoLayout, null)
         setHasOptionsMenu(true)
         recyclerView = initRecyclerView(view)
-        infoAdapter = MonkeyInfoAdapter(activity)
+        infoAdapter = MonkeyInfoAdapter(activity!!.applicationContext)
         infoAdapter!!.recyclerView = recyclerView
         recyclerView.adapter = infoAdapter
         rightText = view.findViewById(R.id.rightTextList)
@@ -86,7 +86,7 @@ open class MonkeyInfoFragment : Fragment(){
         loadingLayout = view.findViewById(R.id.info_load)
         noContentText = view.findViewById(R.id.noContentText)
 
-        if(!isGroup || !arguments.getBoolean("canAddMembers")){
+        if(!isGroup || !arguments!!.getBoolean("canAddMembers")){
             view.findViewById<View>(R.id.add_participant).visibility = View.GONE
             view.findViewById<View>(R.id.participant_gap).visibility = View.VISIBLE
         }else{

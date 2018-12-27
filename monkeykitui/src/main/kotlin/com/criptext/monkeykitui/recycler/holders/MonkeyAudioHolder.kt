@@ -3,6 +3,9 @@ package com.criptext.monkeykitui.recycler.holders
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.res.ResourcesCompat
+
+
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -61,8 +64,7 @@ open class MonkeyAudioHolder: MonkeyHolder, MonkeyFile {
         playButtonView!!.visibility = View.VISIBLE
         sendingProgressBar?.visibility = View.VISIBLE
         downloadProgressView?.visibility = View.INVISIBLE
-        playButtonView!!.setImageDrawable(ContextCompat.getDrawable(playButtonView!!.context,
-                R.drawable.audio_play_in))
+        playButtonView!!.setImageDrawable(ContextCompat.getDrawable(playButtonView!!.context, R.drawable.audio_play_in))
         playButtonView!!.isClickable = false
         playButtonView!!.setOnClickListener(null)
     }
@@ -77,14 +79,14 @@ open class MonkeyAudioHolder: MonkeyHolder, MonkeyFile {
     }
 
     override fun setErrorInDownload(listener: View.OnClickListener, downloadSize: Long){
-        setErrorInTransfer(ContextCompat.getDrawable(playButtonView!!.context,
-                R.drawable.ic_play_down), listener)
+
+        setErrorInTransfer(ContextCompat.getDrawable(playButtonView!!.context, R.drawable.ic_play_down)!!, listener)
         durationTextView?.text = Utils.readableFileSize(downloadSize)
     }
 
     override fun setErrorInUpload(listener: View.OnClickListener, uploadSize: Long){
         setErrorInTransfer(ContextCompat.getDrawable(playButtonView!!.context,
-                R.drawable.ic_play_up), listener)
+                R.drawable.ic_play_up)!!, listener)
         checkmarkImageView?.visibility = View.INVISIBLE
         durationTextView?.text = Utils.readableFileSize(uploadSize)
     }
