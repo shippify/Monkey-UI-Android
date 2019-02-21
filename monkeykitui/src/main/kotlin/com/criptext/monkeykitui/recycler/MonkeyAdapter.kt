@@ -7,11 +7,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -37,7 +37,7 @@ import java.util.*
  * check
  */
 
-open class MonkeyAdapter(val mContext: Context, val conversationId: String) : RecyclerView.Adapter<MonkeyHolder>() {
+open class MonkeyAdapter(val mContext: Context, val conversationId: String) : androidx.recyclerview.widget.RecyclerView.Adapter<MonkeyHolder>() {
     var groupChat : GroupChat? = null
     var messages: MessagesList
 
@@ -67,7 +67,7 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
 
     var itemToDelete: MonkeyItem? = null
     var itemThatNeedsPermissions: MonkeyItem? = null
-    var recyclerView: RecyclerView? = null
+    var recyclerView: androidx.recyclerview.widget.RecyclerView? = null
 
     /**
      * timestamp in miliseconds of the last time the other party read the conversation's messages.
@@ -169,7 +169,7 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
             item.getMessageType() == MonkeyItem.MonkeyItemType.audio.ordinal
 
 
-    fun refreshDeliveryStatus(monkeyItem: MonkeyItem, recyclerView: RecyclerView){
+    fun refreshDeliveryStatus(monkeyItem: MonkeyItem, recyclerView: androidx.recyclerview.widget.RecyclerView){
         recyclerView.itemAnimator!!.isRunning({
             val position = messages.getItemPositionByTimestamp(monkeyItem)
             if ((monkeyItem.getDeliveryStatus() == MonkeyItem.DeliveryStatus.delivered ||
@@ -184,7 +184,7 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
         })
     }
 
-    fun rebindMonkeyItem(monkeyItem: MonkeyItem, recyclerView: RecyclerView){
+    fun rebindMonkeyItem(monkeyItem: MonkeyItem, recyclerView: androidx.recyclerview.widget.RecyclerView){
         recyclerView.post {
             val position = messages.getItemPositionByTimestamp(monkeyItem)
             val monkeyHolder = recyclerView.findViewHolderForAdapterPosition(position) as MonkeyHolder?
@@ -584,7 +584,7 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
 
     fun scrollWithOffset(newItemsCount: Int) {
     //Scroll only if position is not in the last position
-        val manager = recyclerView!!.layoutManager as LinearLayoutManager
+        val manager = recyclerView!!.layoutManager as androidx.recyclerview.widget.LinearLayoutManager
         if(messages.actualSize - newItemsCount > 0 && !isLastItemDisplaying(manager)) {
             notifyItemChanged(newItemsCount)
             manager.scrollToPositionWithOffset(newItemsCount,
@@ -595,7 +595,7 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
 
     fun scrollDown() {
         //Scroll only if position is not in the last position
-        val manager = recyclerView!!.layoutManager as LinearLayoutManager
+        val manager = recyclerView!!.layoutManager as androidx.recyclerview.widget.LinearLayoutManager
             manager.scrollToPosition(messages.actualSize-1)
     }
 
@@ -604,7 +604,7 @@ open class MonkeyAdapter(val mContext: Context, val conversationId: String) : Re
      * @param manager LinearLayoutManager
      * @return true if last position was Visible and false Otherwise
      */
-    private fun isLastItemDisplaying(manager: LinearLayoutManager): Boolean {
+    private fun isLastItemDisplaying(manager: androidx.recyclerview.widget.LinearLayoutManager): Boolean {
         val visibleItemCount = manager.childCount
         val totalItemCount = manager.itemCount
         val pastVisiblesItems = manager.findFirstVisibleItemPosition()

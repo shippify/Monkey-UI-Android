@@ -3,8 +3,8 @@ package com.criptext.uisample;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetBehavior;
+import androidx.annotation.NonNull;
+
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -20,15 +20,12 @@ import com.criptext.monkeykitui.recycler.audio.PlaybackService;
 import com.criptext.monkeykitui.toolbar.ToolbarDelegate;
 import com.criptext.monkeykitui.util.MonkeyFragmentManager;
 import com.criptext.monkeykitui.util.Utils;
-import com.criptext.uisample.conversation.FakeConversations;
 import com.criptext.uisample.conversation.StateFragment;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
 
 /**
  * Created by gesuwall on 8/10/16.

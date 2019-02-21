@@ -1,7 +1,7 @@
 package com.criptext.monkeykitui.util
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import com.criptext.monkeykitui.MonkeyChatFragment
@@ -240,7 +240,7 @@ class MonkeyFragmentManager(val activity: AppCompatActivity, conversationsTitle:
     }
 
     fun popStack(times : Int){
-        val fragmentManager = activity.supportFragmentManager as android.support.v4.app.FragmentManager
+        val fragmentManager = activity.supportFragmentManager as androidx.fragment.app.FragmentManager
         var timess = times as Int
         while(timess > 0){
             if(fragmentManager.backStackEntryCount >= timess){

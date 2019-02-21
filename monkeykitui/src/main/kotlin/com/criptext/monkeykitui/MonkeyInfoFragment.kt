@@ -3,9 +3,9 @@ package com.criptext.monkeykitui
 import android.app.Activity
 import android.app.AlertDialog
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.*
 import android.widget.Button
 import android.widget.FrameLayout
@@ -23,11 +23,11 @@ import java.util.*
  * Created by daniel on 8/11/16.
  */
 
-open class MonkeyInfoFragment : Fragment(){
+open class MonkeyInfoFragment : androidx.fragment.app.Fragment(){
 
     open val infoLayout: Int
         get() = R.layout.fragment_info
-    lateinit var recyclerView: RecyclerView
+    lateinit var recyclerView: androidx.recyclerview.widget.RecyclerView
     protected var infoAdapter: MonkeyInfoAdapter? = null
     var rightText : TextView? = null
     var leftText : TextView? = null
@@ -62,10 +62,10 @@ open class MonkeyInfoFragment : Fragment(){
             infoAdapter?.addMembers(groupInfo);
     }
 
-    open protected fun initRecyclerView(view: View): RecyclerView {
+    open protected fun initRecyclerView(view: View): androidx.recyclerview.widget.RecyclerView {
         //RecyclerView must be inside a container http://stackoverflow.com/a/32695034/5207721
-        val recycler : RecyclerView = view.findViewById(R.id.recycler)
-        val linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
+        val recycler : androidx.recyclerview.widget.RecyclerView = view.findViewById(R.id.recycler)
+        val linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false);
         recycler.layoutManager = linearLayoutManager;
 
         return recycler

@@ -1,6 +1,6 @@
 package com.criptext.monkeykitui.recycler.audio
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import com.criptext.monkeykitui.MonkeyChatFragment
 import com.criptext.monkeykitui.recycler.MessagesList
 import com.criptext.monkeykitui.recycler.MonkeyAdapter
@@ -11,7 +11,7 @@ import com.criptext.monkeykitui.recycler.holders.MonkeyAudioHolder
  * Created by gesuwall on 8/10/16.
  */
 
-open class AudioUIUpdater(val recyclerView: RecyclerView) {
+open class AudioUIUpdater(val recyclerView: androidx.recyclerview.widget.RecyclerView) {
     val adapter: MonkeyAdapter
     init {
         adapter = recyclerView.adapter as MonkeyAdapter

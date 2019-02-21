@@ -2,11 +2,11 @@ package com.criptext.monkeykitui.toolbar
 
 import android.content.Context
 import android.media.Image
-import android.support.design.widget.AppBarLayout
-import android.support.design.widget.CoordinatorLayout
+import com.google.android.material.appbar.AppBarLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import android.util.AttributeSet
 import android.view.View
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 import android.util.Log
 import android.widget.ImageView
 import android.widget.RelativeLayout
@@ -15,7 +15,7 @@ import com.criptext.monkeykitui.R
 /**
  * Created by hirobreak on 10/10/16.
  */
-class HeaderViewBehavior(context: Context, attrs: AttributeSet? = null) : CoordinatorLayout.Behavior<HeaderView>(context, attrs){
+class HeaderViewBehavior(context: Context, attrs: AttributeSet? = null) : androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior<HeaderView>(context, attrs){
 
     private val MIN_AVATAR_PERCENTAGE_SIZE = 0.3f
     private val EXTRA_FINAL_AVATAR_PADDING = 80
@@ -32,12 +32,12 @@ class HeaderViewBehavior(context: Context, attrs: AttributeSet? = null) : Coordi
     private var mfontSize: Float = 20.toFloat()
     private var mChangeBehaviorPoint: Float = 0.toFloat()
 
-    override fun layoutDependsOn(parent: CoordinatorLayout, child: HeaderView, dependency: View): Boolean {
+    override fun layoutDependsOn(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: HeaderView, dependency: View): Boolean {
         var hello = (dependency is AppBarLayout)
         return hello
     }
 
-    override fun onDependentViewChanged(parent: CoordinatorLayout, child: HeaderView, dependency: View): Boolean {
+    override fun onDependentViewChanged(parent: androidx.coordinatorlayout.widget.CoordinatorLayout, child: HeaderView, dependency: View): Boolean {
         maybeInitProperties(child, dependency)
 
         val maxScrollDistance = - mContext.resources.getDimension(R.dimen.mk_header_scroll)
@@ -52,7 +52,7 @@ class HeaderViewBehavior(context: Context, attrs: AttributeSet? = null) : Coordi
 
             val heightToSubtract = (mStartHeight - mCustomFinalHeight) * heightFactor
 
-            val lp = child.layoutParams as CoordinatorLayout.LayoutParams
+            val lp = child.layoutParams as androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams
 
             child.layoutParams = lp
         } else {
@@ -72,7 +72,7 @@ class HeaderViewBehavior(context: Context, attrs: AttributeSet? = null) : Coordi
             child.imageView.layoutParams.height = (mContext.resources.getDimension(R.dimen.mk_image_dim) - (mContext.resources.getDimension(R.dimen.mk_image_dim) - mContext.resources.getDimension(R.dimen.mk_image_end_dim)) * (1f - expandedPercentageFactor)).toInt()
             child.imageView.layoutParams.width = (mContext.resources.getDimension(R.dimen.mk_image_dim) - (mContext.resources.getDimension(R.dimen.mk_image_dim) - mContext.resources.getDimension(R.dimen.mk_image_end_dim)) * (1f - expandedPercentageFactor)).toInt()
 
-            (child.layoutParams as CoordinatorLayout.LayoutParams).leftMargin = (mContext.resources.getDimension(R.dimen.mk_begin_toolbar_left) - (mContext.resources.getDimension(R.dimen.mk_begin_toolbar_left) - mContext.resources.getDimension(R.dimen.mk_end_toolbar_left)) * (1f - expandedPercentageFactor)).toInt()
+            (child.layoutParams as androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams).leftMargin = (mContext.resources.getDimension(R.dimen.mk_begin_toolbar_left) - (mContext.resources.getDimension(R.dimen.mk_begin_toolbar_left) - mContext.resources.getDimension(R.dimen.mk_end_toolbar_left)) * (1f - expandedPercentageFactor)).toInt()
 
         }
         return true

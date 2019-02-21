@@ -1,7 +1,7 @@
 package com.criptext.monkeykitui.info
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -30,7 +30,7 @@ import java.util.*
  * Created by hirobreak on 04/10/16.
  */
 
-open class MonkeyInfoAdapter(val mContext: Context) : RecyclerView.Adapter<InfoHolder>() {
+open class MonkeyInfoAdapter(val mContext: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<InfoHolder>() {
 
     private val itemsList: ArrayList<MonkeyInfo>
     val mSelectableItemBg: Int
@@ -42,7 +42,7 @@ open class MonkeyInfoAdapter(val mContext: Context) : RecyclerView.Adapter<InfoH
 
     var maxTextWidth: Int? = null
 
-    var recyclerView: RecyclerView? = null
+    var recyclerView: androidx.recyclerview.widget.RecyclerView? = null
 
     var onInfoItemLongClicked : OnInfoItemLongClicked
     val userOptions : MutableList<OnInfoOptionClicked>

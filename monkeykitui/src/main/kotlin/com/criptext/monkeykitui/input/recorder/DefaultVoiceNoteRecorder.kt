@@ -6,7 +6,7 @@ import android.content.pm.ActivityInfo
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import com.criptext.monkeykitui.R
 import com.criptext.monkeykitui.recycler.MonkeyItem

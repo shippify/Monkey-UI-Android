@@ -1,8 +1,8 @@
 package com.criptext.monkeykitui
 
 import android.app.Activity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.criptext.monkeykitui.conversation.ConversationsActivity
 import com.criptext.monkeykitui.conversation.ConversationsList
 import com.criptext.monkeykitui.conversation.MonkeyConversation
@@ -17,7 +17,7 @@ open class ConversationsAdapterTestCase {
     lateinit var conversations: ConversationsList
     lateinit var adapter: MonkeyConversationsAdapter
     var activity: Activity? = null
-    var recycler: RecyclerView? = null
+    var recycler: androidx.recyclerview.widget.RecyclerView? = null
 
 
     @Before
@@ -26,8 +26,8 @@ open class ConversationsAdapterTestCase {
             val newActivity = Robolectric.setupActivity(MonkeyActivity::class.java)
             conversations = ConversationsList()
             adapter = MonkeyConversationsAdapter(newActivity)
-            recycler = RecyclerView(newActivity);
-            recycler!!.layoutManager = LinearLayoutManager(newActivity)
+            recycler = androidx.recyclerview.widget.RecyclerView(newActivity);
+            recycler!!.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(newActivity)
             activity = newActivity
         }
     }

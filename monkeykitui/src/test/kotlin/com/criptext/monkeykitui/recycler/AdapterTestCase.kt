@@ -3,8 +3,8 @@ package com.criptext.monkeykitui.recycler
 import android.app.Activity
 import android.content.Intent
 import android.os.Message
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.criptext.monkeykitui.MonkeyChatFragment
 import com.criptext.monkeykitui.conversation.ConversationsList
 import com.criptext.monkeykitui.recycler.*
@@ -19,7 +19,7 @@ import java.util.*
 open class AdapterTestCase {
     lateinit var adapter: MonkeyAdapter
     var activity: Activity? = null
-    var recycler: RecyclerView? = null
+    var recycler: androidx.recyclerview.widget.RecyclerView? = null
 
     val contactSessionId : String = "fakecontactsession"
     val mySessionId = "mysession"
@@ -31,8 +31,8 @@ open class AdapterTestCase {
     fun initAdapter(){
         val newActivity = Robolectric.setupActivity(MonkeyActivity::class.java)
         adapter = MonkeyAdapter(newActivity, "mirror")
-        recycler = RecyclerView(newActivity);
-        recycler!!.layoutManager = LinearLayoutManager(newActivity)
+        recycler = androidx.recyclerview.widget.RecyclerView(newActivity);
+        recycler!!.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(newActivity)
         activity = newActivity
     }
 

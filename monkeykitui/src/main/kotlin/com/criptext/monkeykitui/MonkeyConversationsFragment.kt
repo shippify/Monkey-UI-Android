@@ -3,11 +3,11 @@ package com.criptext.monkeykitui
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.CoordinatorLayout
-import android.support.v4.app.Fragment
-import android.support.v4.widget.NestedScrollView
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.fragment.app.Fragment
+import androidx.core.widget.NestedScrollView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.*
 import com.criptext.monkeykitui.conversation.ConversationsActivity
@@ -25,11 +25,11 @@ import java.util.*
  * Created by gesuwall on 8/11/16.
  */
 
-open class MonkeyConversationsFragment: Fragment(), ConversationListUI {
+open class MonkeyConversationsFragment: androidx.fragment.app.Fragment(), ConversationListUI {
 
     open val conversationsLayout: Int
         get() = R.layout.recycler_layout
-    var recyclerView: RecyclerView? = null
+    var recyclerView: androidx.recyclerview.widget.RecyclerView? = null
     protected var conversationsAdapter: MonkeyConversationsAdapter? = null
 
 
@@ -40,10 +40,10 @@ open class MonkeyConversationsFragment: Fragment(), ConversationListUI {
      * The default implementation sets a LinearLayoutManager with the stackFromEnd property set as true
      * @return the RecyclerView object of this fragment ready to set an adapter with data.
      */
-    open protected fun initRecyclerView(view: View): RecyclerView {
+    open protected fun initRecyclerView(view: View): androidx.recyclerview.widget.RecyclerView {
         //RecyclerView must be inside a container http://stackoverflow.com/a/32695034/5207721
-        val recycler : RecyclerView = view.findViewById(R.id.recycler)
-        val linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
+        val recycler : androidx.recyclerview.widget.RecyclerView = view.findViewById(R.id.recycler)
+        val linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false);
         recycler.layoutManager = linearLayoutManager;
         return recycler
     }

@@ -1,7 +1,7 @@
 package com.criptext.monkeykitui.info.holder
 
 import android.graphics.Color
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
 import com.criptext.monkeykitui.R
@@ -13,7 +13,7 @@ import de.hdodenhof.circleimageview.CircleImageView
  * Created by hirobreak on 04/10/16.
  */
 
-open class InfoHolder: RecyclerView.ViewHolder {
+open class InfoHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder {
 
     val nameTextView: TextView?
     val secondaryTextView: TextView?

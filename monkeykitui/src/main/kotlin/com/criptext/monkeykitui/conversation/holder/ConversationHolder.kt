@@ -1,6 +1,6 @@
 package com.criptext.monkeykitui.conversation.holder
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -15,7 +15,7 @@ import java.io.File
  * Created by gesuwall on 8/24/16.
  */
 
-open class ConversationHolder: RecyclerView.ViewHolder {
+open class ConversationHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder {
 
     val nameTextView: TextView?
     val secondaryTextView: TextView?

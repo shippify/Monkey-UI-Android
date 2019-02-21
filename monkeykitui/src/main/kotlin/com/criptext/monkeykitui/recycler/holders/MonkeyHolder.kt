@@ -2,8 +2,8 @@ package com.criptext.monkeykitui.recycler.holders
 
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +20,7 @@ import java.util.*
 /**
  * Created by gesuwall on 4/11/16.
  */
-open class MonkeyHolder : RecyclerView.ViewHolder {
+open class MonkeyHolder : androidx.recyclerview.widget.RecyclerView.ViewHolder {
     /* COMMON */
     var datetimeTextView : TextView? = null
     var bubbleLayout : ViewGroup? = null

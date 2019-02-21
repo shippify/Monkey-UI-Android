@@ -10,9 +10,9 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import android.util.Log
 import android.util.TypedValue
 import android.view.Menu
@@ -330,7 +330,7 @@ class PhotoEditorActivity : AppCompatActivity() {
     protected val editedDegrees: Int
         get() = retainedFragment.degrees
 
-    class RetainEditPhoto : Fragment() {
+    class RetainEditPhoto : androidx.fragment.app.Fragment() {
 
         // true si he editado la foto y debo de sacarla de la cache, de lo contrario tengo
         //que sacarla de la galeria

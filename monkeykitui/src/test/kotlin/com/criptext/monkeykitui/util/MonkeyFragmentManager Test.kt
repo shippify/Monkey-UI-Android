@@ -1,6 +1,6 @@
 package com.criptext.monkeykitui.util
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import com.criptext.monkeykitui.BuildConfig
 import com.criptext.monkeykitui.MonkeyChatFragment

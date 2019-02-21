@@ -1,7 +1,7 @@
 package com.criptext.monkeykitui.util
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -154,7 +154,7 @@ class Utils {
             else ViewGroup.LayoutParams.WRAP_CONTENT
             val currentConstraint = itemView.layoutParams.height
             if(newConstraint != currentConstraint)
-                itemView.layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                itemView.layoutParams = androidx.recyclerview.widget.RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                         newConstraint)
         }
 
@@ -166,7 +166,7 @@ class Utils {
          */
         fun getViewWithRecyclerLayoutParams(view: View) : View {
             val params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            view.layoutParams = RecyclerView.LayoutParams(params)
+            view.layoutParams = androidx.recyclerview.widget.RecyclerView.LayoutParams(params)
             return view
         }
 

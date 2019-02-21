@@ -4,9 +4,9 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.*
 import android.view.animation.Animation
@@ -30,10 +30,10 @@ import java.io.File
  * Created by Gabriel on 8/10/16.
  */
 
-open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullScreenImageLoader, MessageListUI{
+open class MonkeyChatFragment(): androidx.fragment.app.Fragment(), FullScreenImageGalleryAdapter.FullScreenImageLoader, MessageListUI{
 
     val LOAD_FILE = 777
-    lateinit var recyclerView: RecyclerView
+    lateinit var recyclerView: androidx.recyclerview.widget.RecyclerView
     private lateinit var monkeyAdapter: MonkeyAdapter
     private lateinit var audioUIUpdater: AudioUIUpdater
     private var inputView: BaseInputView? = null
@@ -88,9 +88,9 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
      * The default implementation sets a LinearLayoutManager with the stackFromEnd property set as true
      * @return the RecyclerView object of this fragment ready to set an adapter with data.
      */
-    open fun initRecyclerView(view: View): RecyclerView {
-        val recycler : RecyclerView = view.findViewById(R.id.recycler)
-        val linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
+    open fun initRecyclerView(view: View): androidx.recyclerview.widget.RecyclerView {
+        val recycler : androidx.recyclerview.widget.RecyclerView = view.findViewById(R.id.recycler)
+        val linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity, RecyclerView.VERTICAL, false);
         linearLayoutManager.stackFromEnd = true;
         recycler.layoutManager = linearLayoutManager;
 
@@ -339,7 +339,7 @@ open class MonkeyChatFragment(): Fragment(), FullScreenImageGalleryAdapter.FullS
     override fun notifyItemChanged(pos: Int) = monkeyAdapter.notifyItemChanged(pos)
 
     override fun findLastVisibleItemPosition(): Int {
-        val manager = recyclerView.layoutManager as LinearLayoutManager
+        val manager = recyclerView.layoutManager as androidx.recyclerview.widget.LinearLayoutManager
         return manager.findLastVisibleItemPosition()
     }
 

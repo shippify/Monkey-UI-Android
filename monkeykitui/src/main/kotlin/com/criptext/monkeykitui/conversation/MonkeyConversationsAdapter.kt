@@ -1,10 +1,10 @@
 package com.criptext.monkeykitui.conversation
 
 import android.content.Context
-import android.support.design.widget.Snackbar
-import android.support.design.widget.Snackbar.Callback
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.snackbar.Snackbar.Callback
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -27,7 +27,7 @@ import java.util.*
  * Created by gesuwall on 8/11/16.
  */
 
-open class MonkeyConversationsAdapter(val mContext: Context) : RecyclerView.Adapter<ConversationHolder>() {
+open class MonkeyConversationsAdapter(val mContext: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ConversationHolder>() {
 
     var conversations: ConversationsList
 
@@ -36,7 +36,7 @@ open class MonkeyConversationsAdapter(val mContext: Context) : RecyclerView.Adap
     private val conversationsActivity: ConversationsActivity
     get() = mContext as ConversationsActivity
 
-    var recyclerView : RecyclerView? = null
+    var recyclerView : androidx.recyclerview.widget.RecyclerView? = null
 
     val dataLoader : SlowRecyclerLoader
 

@@ -5,8 +5,8 @@ import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Handler
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
