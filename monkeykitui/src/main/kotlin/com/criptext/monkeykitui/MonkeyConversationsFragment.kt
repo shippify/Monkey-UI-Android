@@ -43,7 +43,7 @@ open class MonkeyConversationsFragment: androidx.fragment.app.Fragment(), Conver
     open protected fun initRecyclerView(view: View): androidx.recyclerview.widget.RecyclerView {
         //RecyclerView must be inside a container http://stackoverflow.com/a/32695034/5207721
         val recycler : androidx.recyclerview.widget.RecyclerView = view.findViewById(R.id.recycler)
-        val linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity, androidx.recyclerview.widget.LinearLayoutManager.VERTICAL, false);
+        val linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity, RecyclerView.VERTICAL, false);
         recycler.layoutManager = linearLayoutManager;
         return recycler
     }
@@ -52,7 +52,7 @@ open class MonkeyConversationsFragment: androidx.fragment.app.Fragment(), Conver
         val view = inflater!!.inflate(conversationsLayout, null)
         setHasOptionsMenu(false)
         recyclerView = initRecyclerView(view)
-        conversationsAdapter = MonkeyConversationsAdapter(activity!!.applicationContext)
+        conversationsAdapter = MonkeyConversationsAdapter(activity!!)
         conversationsAdapter!!.recyclerView = recyclerView
         recyclerView!!.adapter = conversationsAdapter
         return view
