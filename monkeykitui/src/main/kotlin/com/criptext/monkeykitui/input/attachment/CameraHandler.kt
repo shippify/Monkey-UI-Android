@@ -7,6 +7,7 @@ import android.content.Intent
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Environment
+import android.os.StrictMode
 import android.provider.MediaStore
 import android.util.Log
 import com.criptext.monkeykitui.input.photoEditor.PhotoEditorActivity
@@ -18,6 +19,9 @@ import com.soundcloud.android.crop.Crop
 import java.io.File
 import java.io.IOException
 import java.util.*
+import android.os.StrictMode.VmPolicy
+
+
 
 /**
  * Created by daniel on 4/21/16.
@@ -69,6 +73,9 @@ class CameraHandler constructor(var context : Context){
     }
 
     fun takePicture() {
+
+        val builder = StrictMode.VmPolicy.Builder()
+        StrictMode.setVmPolicy(builder.build())
 
         if(tempFile == null)
             initTemporaryPhotoFile()
