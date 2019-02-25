@@ -97,7 +97,7 @@ open class MonkeyChatFragment(): androidx.fragment.app.Fragment(), FullScreenIma
         val args = arguments
         val conversationId = args!!.getString(chatConversationId)
         val lastRead = args.getLong(initalLastReadValue)
-        monkeyAdapter = MonkeyAdapter(activity!!.applicationContext, conversationId, lastRead)
+        monkeyAdapter = MonkeyAdapter(activity!!, conversationId, lastRead)
         monkeyAdapter.recyclerView = recycler
         recycler.adapter = monkeyAdapter
         return recycler
