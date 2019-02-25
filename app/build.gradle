@@ -28,7 +28,7 @@ repositories {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    api 'androidx.appcompat:appcompat:1.0.0-beta01'
+    api 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.recyclerview:recyclerview:1.0.0-beta01'
     api project(':monkeykitui')
 }

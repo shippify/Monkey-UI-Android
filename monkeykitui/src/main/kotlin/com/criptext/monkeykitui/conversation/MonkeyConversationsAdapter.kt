@@ -61,9 +61,9 @@ open class MonkeyConversationsAdapter(val mContext: Context) : androidx.recycler
         val mTypedValue = TypedValue();
         mContext.theme.resolveAttribute(R.attr.selectableItemBackground, mTypedValue, true);
         mSelectableItemBg = mTypedValue.resourceId
-        mContext as? ConversationsActivity ?:
-                throw IllegalArgumentException(
-                        "The context of this MonkeConversationsAdapter must implement ConversationsActivity!")
+//        mContext as? ConversationsActivity ?:
+//                throw IllegalArgumentException(
+//                        "The context of this MonkeConversationsAdapter must implement ConversationsActivity!")
         dataLoader = SlowRecyclerLoader(null, mContext)
 
         conversationOptions = mutableListOf(
